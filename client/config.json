@@ -1,0 +1,6 @@
+{
+    "src": "app/scripts",
+    "testOutput" : "coverage/xml",
+    "junitResult": "coverage/xml/junit-test-results.xml",
+    "coverageOutput": "coverage/report"
+}

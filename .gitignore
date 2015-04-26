@@ -1,0 +1,12 @@
+client/node_modules/
+client/bower_components/
+client/.tmp/
+client/coverage/
+client/README.md
+server/bin/
+server/node_modules/
+server/data/
+angularTodoList.iml
+server/dist/
+.idea/
+client/test/bower_components/

@@ -1,0 +1,47 @@
+
+<div class="container">
+ <table class="table table-striped">
+ 	<tr>
+ 		<th>What to do ?</th>
+ 		<th>Details</th>
+ 		<th>#</th>
+ 	</tr>
+ 	<tr ng-repeat="(key, val) in todos">
+ 		<td>{{ val.todo }} </td>
+ 		<td>{{ val.todoDetails }}</td>
+ 		<td>
+        <button id="editTodo" class="btn btn-success" ng-click="showEditForm(val._id, val.todo, $index)" aria-label="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+	 			<button id="removeTodo" class="btn btn-danger" ng-click="removeTodo(val._id)" aria-label="Remove"><span class="glyphicon glyphicon-remove"></span></button>
+
+ 		</td>
+ 	</tr>
+ </table>
+
+
+  <form class="form-horizontal" name="userForm"  id="userForm"  novalidate>
+
+    <!-- WHAT to do ? -->
+    <div class="form-group" ng-class="{ 'has-error' : userForm.todo.$invalid && !userForm.todo.$pristine }">
+      <label>To do task</label>
+      <input type="text" name="todo" class="form-control" ng-model="user.todo" placeholder="What you want to do today...!" required>
+      <p ng-show="userForm.todo.$invalid && !userForm.todo.$pristine" class="help-block">Todo is required.</p>
+    </div>
+
+    <!-- Details -->
+    <div class="form-group" ng-class="{ 'has-error' : userForm.todoDetails.$invalid && !userForm.todoDetails.$pristine }">
+      <label>Details</label>
+      <textarea name="todoDetails" type="text" ng-model="user.todoDetails" class="form-control" rows="5" placeholder="More details...!" ng-minlength="5" ng-maxlength="100"></textarea>
+      <p ng-show="userForm.todoDetails.$error.minlength" class="help-block">Details are too short.</p>
+      <p ng-show="userForm.todoDetails.$error.maxlength" class="help-block">Details are too long.</p>
+    </div>
+    <div class="form-group">
+      <div class="col-md-4">
+        <button id="addTodo" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="addTodo()">AddTodo</button>
+        <button class="btn btn-default" ng-disabled="userForm.$invalid" ng-click="editTodoDetails(idItem, index)" ng-show="showEdit">EditTodo</button>
+      </div>
+    </div>
+  </form>
+
+
+
+</div>
